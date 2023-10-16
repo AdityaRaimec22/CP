@@ -18,7 +18,7 @@ bool checkCycle(int i, unordered_map<int, bool> &visited, unordered_map<int, boo
                 else if(dfsVisited[neighbour])
                 {
                     return true;
-                }
+                }   
             }
         }
     }
@@ -101,6 +101,7 @@ vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)
         s.pop();
     }
     return ans;
+    
 }
 
 int main(){
