@@ -53,7 +53,7 @@ class Graph {
                 {
                     if(dist[top] + i.second < dist[i.first])
                     {
-                        dist[i.first] = dist[top] +i.second;
+                        dist[i.first] = dist[top] + i.second;
                     }
                 }
             }
