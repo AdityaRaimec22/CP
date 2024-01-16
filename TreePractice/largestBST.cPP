@@ -58,7 +58,8 @@ Info solve(Node* root, int &maxSize)
     return currNode;
 }
 
-class Heap {
+class Heap
+{
     public:
     int arr[100];
     int size = 0;
@@ -124,8 +125,8 @@ class Heap {
         for (int i = 1; i <+ size; i++)
         {
             cout << arr[i] << " ";
-        } cout << endl;
-        
+        } 
+        cout << endl;
     }
 };
 
@@ -139,6 +140,7 @@ void heapify(int arr[], int n, int i)
     {
         largest = left;
     }
+    
     if (right < n && arr[largest] < arr[right])
     {
         largest = right;
@@ -146,7 +148,7 @@ void heapify(int arr[], int n, int i)
 
     if (largest != i)
     {
-        swap(arr[largest] , arr[i]);
+        swap(arr[largest], arr[i]);
         heapify(arr, n, largest);
     }
 }
