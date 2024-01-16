@@ -1,17 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Node {
+class Node{
     public:
     int data;
-    int i;
-    int j;
+    int row;
+    int col;
 
     Node(int data, int row, int col)
     {
-        this -> data = data;
-        this->i = row;
-        this->j = col;
+        this->data = data;
+        this->row = row;
+        this->col = col;
     }
 };
 
@@ -27,7 +27,7 @@ vector<int> mergeKSortedArrays(vector<vector<int>> &kArrays, int k)
 {
     priority_queue<Node*, vector<Node*>, Compare> minHeap;
 
-    for (int i = 0; i < k; i++)
+    for(int i = 0; i < k; i++)
     {
         Node* tmp = new Node(kArrays[i][0], i, 0);
         minHeap.push(tmp);
@@ -37,24 +37,25 @@ vector<int> mergeKSortedArrays(vector<vector<int>> &kArrays, int k)
 
     while(minHeap.size() > 0)
     {
-        Node* tmp = minHeap.top();
-
-        ans.push_back(tmp->data);
+        Node* next = minHeap.top();
         minHeap.pop();
 
-        int i = tmp->i;
-        int j = tmp->j;
+        ans.push_back(next->data);
+        int row = next->row;
+        int col = next->col;
 
-        if(j+1 < kArrays.size())
+        if(col+1 < kArrays.size())
         {
-            Node* next = new Node(kArrays[i][j+1], i, j+1);
-            minHeap.push(next);
+            Node* nextTmp = new Node(kArrays[row][col+1], row, col+1);
+            minHeap.push(nextTmp);
         }
     }
+
     return ans;
 }
 
 int main(){
-    
+
+
     return 0;
 }
