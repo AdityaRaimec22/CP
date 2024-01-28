@@ -26,9 +26,6 @@ int findParent(vector<int> &parent, int node)
 
 void unionSet(int u, int v, vector<int> &parent, vector<int> &rank)
 {
-    u = findParent(parent, u);
-    v = findParent(parent, v);
-
     if (rank[u] < rank[v])
     {
         parent[u] = v;
@@ -65,11 +62,25 @@ int minimumSpannigTree(vector<vector<int>> &edges, int n)
             unionSet(u, v, parent, rank);
         }
     }
+
     return minWeight;
 }
 
 int main()
 {
+    int m, n;
+    cin >> m >> n;
+    vector<vector<int>> edges(m, vector<int>(3));
+
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            cin >> edges[i][j];
+        }
+    }
+
+    cout << minimumSpannigTree(edges, n) << endl; 
 
     return 0;
 }

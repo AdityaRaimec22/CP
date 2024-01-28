@@ -73,7 +73,7 @@ int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
             revDfs(top, vis, transpose);
         }
     }
-    return count;  
+    return count;
 }
 
 int main(){

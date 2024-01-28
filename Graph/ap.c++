@@ -1,12 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-int min(int a, int b)
-{
-    if(a<b)
-        return a;
-    return b;
-}
+#define ll long long
+#define f(i,j,n) for(int i=j; i<n; i++)
+#define fo(i,j) for(auto i: j)
+#define vec vector<int>
 
 void dfs(int node, int parent, vector<int> &disc, vector<int> &low, unordered_map<int, bool> vis, unordered_map<int, list<int>> adj, vector<int> &ap, int &timer)
 {
@@ -14,11 +11,11 @@ void dfs(int node, int parent, vector<int> &disc, vector<int> &low, unordered_ma
     disc[node] = low[node] = timer++;
     int child = 0;
 
-    for(auto nbr: adj[node])
+    fo(nbr, adj[node])
     {
         if(nbr == parent)
             continue;
-        
+
         if(!vis[nbr])
         {
             dfs(nbr, node, disc, low, vis, adj, ap, timer);
@@ -27,26 +24,19 @@ void dfs(int node, int parent, vector<int> &disc, vector<int> &low, unordered_ma
             {
                 ap[node] = 1;
             }
-            child++;
         }
         else
         {
-            low[node] = min(low[node], disc[nbr]);
+            low[node] = min(low[node], low[nbr]);
         }
     }
-    if(parent == -1 && child > 1)
-    {
-        ap[node] = 1;
-    }
+
 }
 
 int main(){
 
-    int n = 5;
-    int e = 5;
-    vector<pair<int, int> > edges;
-    edges.push_back(make_pair(0,3));
-
+    int n, e;
+    vector<pair<int, int>> edges;
     unordered_map<int, list<int>> adj;
 
     for(int i = 0; i < n; i++)

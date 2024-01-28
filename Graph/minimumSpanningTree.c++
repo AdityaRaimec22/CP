@@ -10,6 +10,7 @@ vector<pair<pair<int, int>, int>> calculatePrismMST(int n, int m, vector<pair<pa
         int u = g[i].first.first;
         int v = g[i].first.second;
         int w = g[i].second;
+
         adj[u].push_back(make_pair(v,w));
         adj[v].push_back(make_pair(u, w));
     }
@@ -24,7 +25,7 @@ vector<pair<pair<int, int>, int>> calculatePrismMST(int n, int m, vector<pair<pa
         parent[i] = -1;
         mst[i] = false;
     }
-    
+
     key[1] = 0;
     parent[1] = -1;
 
@@ -50,6 +51,7 @@ vector<pair<pair<int, int>, int>> calculatePrismMST(int n, int m, vector<pair<pa
         {
             int v = it.first;
             int w = it.second;
+
             if(mst[v] == false && w < key[v])
             {
                 parent[v] = u;
@@ -59,11 +61,13 @@ vector<pair<pair<int, int>, int>> calculatePrismMST(int n, int m, vector<pair<pa
     }
 
     vector<pair<pair<int, int>, int>> result;
+
     for(int i = 2; i<=n; i++)
     {
         result.push_back({{parent[i], i}, key[i]});
     }
-    return result; 
+
+    return result;
 }
 
 int main(){

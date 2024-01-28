@@ -46,7 +46,7 @@ vector<int> BFS(int vertex, vector<pair<int, int>> edges)
 
     prepareAdjList(adjList, edges);
 
-    //transverse all components  of a graph
+    // Transverse all components  of a graph
     for (int i = 0; i < vertex; i++)
     {
         if (!visited[i])
@@ -54,6 +54,7 @@ vector<int> BFS(int vertex, vector<pair<int, int>> edges)
             bfs(adjList, visited, ans, i);
         }
     }
+
     return ans;
 }
 
