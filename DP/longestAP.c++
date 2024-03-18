@@ -100,6 +100,7 @@ int lengthOfLongestAP(int a[], int n)
             ans = max(ans, 2+solve(i, a[i] - a[j], a));
         }
     }
+    
     return ans;
 }
 

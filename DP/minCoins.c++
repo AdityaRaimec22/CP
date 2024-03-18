@@ -25,8 +25,8 @@ int solveMem(int n, vector<int> days, vector<int> cost, int index, vector<int> &
     if(index >= n)
         return 0;
 
-    if(dp[n] != -1)
-        return dp[n];
+    if(dp[index] != -1)
+        return dp[index];
 
     int option1 = cost[0] + solveMem(n, days, cost, index+1, dp);
 
@@ -81,6 +81,7 @@ int solveSO(int n, vector<int> days, vector<int> cost)
         {
             month.pop();
         }
+
         while(!week.empty() && week.front().first + 30 <= day)
         {
             week.pop();

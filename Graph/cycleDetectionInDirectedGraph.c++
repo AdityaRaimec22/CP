@@ -22,6 +22,7 @@ bool checkCycle(int i, unordered_map<int, bool> &visited, unordered_map<int, boo
             }
         }
     }
+
     dfsVisited[i] = false;
     return false;
 }   
@@ -73,6 +74,7 @@ void topoSort(int node, unordered_map<int, bool> visited, stack<int> s, unordere
 vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)
 {
     unordered_map<int, list<int>> adj;
+
     for (int i = 0; i < e; i++)
     {
         int u = edges[i][0];
@@ -100,8 +102,8 @@ vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)
         ans.push_back(s.top());
         s.pop();
     }
+
     return ans;
-    
 }
 
 int main(){

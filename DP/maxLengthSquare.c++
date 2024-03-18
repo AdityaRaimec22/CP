@@ -22,7 +22,7 @@ int solve(vector<vector<int> > mat, int i, int j, int &maxi)
     }
 }
 
-int solveMem(vector<vector<int> > mat, int i, int j, int &maxi, vector<vector<int> > dp)
+int solveMem(vector<vector<int> > &mat, int i, int j, int &maxi, vector<vector<int> > dp)
 {
     if(i >= mat.size() || j >= mat[0].size())
         return 0;
@@ -74,7 +74,7 @@ int solveTab(int row, int col, vector<vector<int>> mat, int maxi)
 
 int solveSO(int row, int col, vector<vector<int> > &mat, int &maxi)
 {
-    vector<int> curr(col+1, 0);
+    vector<int> curr(row+1, 0);
     vector<int> next(col+1, 0);
 
     for (int i = row-1; i >= 0; i++)

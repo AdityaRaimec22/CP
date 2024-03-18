@@ -2,6 +2,7 @@
 using namespace std;
 
 bool isCyclicDFS(int node, int parent, unordered_map<int, bool>&visited, unordered_map<int, list<int>> &adj){
+
     for(auto neighbour: adj[node])
     {
         if(!visited[neighbour])
@@ -18,8 +19,11 @@ bool isCyclicDFS(int node, int parent, unordered_map<int, bool>&visited, unorder
             }
         }
     }
+
     return false;
 }
+
+
 
 bool isCycleBFS(int src, unordered_map<int, bool> &visited, unordered_map<int, list<int>> &adj)
 {

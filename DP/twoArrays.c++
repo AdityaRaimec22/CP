@@ -77,12 +77,13 @@ bool solveSO(int n, int *arr, int t)
         for (int target = 0; target <= t; target++)
         {
             bool incl = 0;
-            if(target - arr[index])
+            if(target - arr[index] >= 0)
                 incl = next[target-arr[index]];
 
             bool excl = next[target];
             curr[target] = incl or excl;
         }
+        curr = next;
     }
     return next[t];
 }

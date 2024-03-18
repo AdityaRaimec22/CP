@@ -42,7 +42,6 @@ int bellamanFord(int n, int m, int src, int dest, vector<vector<int>> &edges)
         return dist[dest];
     }
     return -1;
-
 }
 
 int main(){

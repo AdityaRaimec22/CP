@@ -15,6 +15,7 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
     }
 
     vector<int> dist(vertices);
+    
     for (int i = 0; i < vertices; i++)
     {
         dist[i] = INT_MAX;

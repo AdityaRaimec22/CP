@@ -48,6 +48,7 @@ int main(){
     edges.push_back(make_pair(0,3));
 
     unordered_map<int, list<int>> adj;
+
     for(int i = 0; i < n; i++)
     {
         int u = edges[i].first;
@@ -76,8 +77,6 @@ int main(){
             dfs(i, -1, disc, low, vis, adj, ap, timer);
         }
     }
-    
-    
 
     return 0;
 }

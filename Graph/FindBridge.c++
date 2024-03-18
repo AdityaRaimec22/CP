@@ -64,9 +64,8 @@ vector<vector<int>> findBridge(vector<vector<int>> &edges, int v, int e)
             dfs(i, parent, timer, disc, low, result, adj, vis);
         }
     }
-
-    return result;
     
+    return result;
 }
 
 int main(){
