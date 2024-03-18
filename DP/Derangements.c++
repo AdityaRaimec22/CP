@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
-#define MOD 100000007
+#define MOD 1000000007
 
 ll solveMem(int n, vector<ll> &dp)
 {
@@ -20,9 +20,24 @@ ll solveMem(int n, vector<ll> &dp)
         return dp[n];
     }
 
-    dp[n] = (n-1)*(solveMem(n-1, dp), solveMem(n-2, dp));
+    dp[n] = (n-1)*(solveMem(n-1, dp) + solveMem(n-2, dp));
     
     return dp[n];
+}
+
+ll solveNew(int n)
+{
+    int prev2 = 0;
+    int prev1 = 1;
+
+    for(int i = 3; i <= n; i++)
+    {
+        int curr = (n-1)*(prev2 + prev1);
+        prev2 = prev1;
+        prev1 = curr;
+    }
+
+    return prev1;
 }
 
 ll solveTab(int n)
@@ -31,18 +46,12 @@ ll solveTab(int n)
     dp[1] = 0;
     dp[2] = 1;
 
-    for (int i = 3; i <= n; i++)
+    for (int i = 3; i < n; i++)
     {
-        ll first = dp[i-1]%MOD;
-        ll second = dp[i-2]%MOD;
-        ll sum = (first + second)%MOD;
-
-        ll ans = ((i-1)*sum)%MOD;
-        dp[i] = ans;
+        dp[i] = ((i-1)*(((dp[i-2]%MOD) + (dp[i-1]%MOD))%MOD))%MOD;
     }
 
     return dp[n];
-    
 }
 
 ll countDerangements(int n)
@@ -53,7 +62,7 @@ ll countDerangements(int n)
 
 int main(){
 
-    cout << solveTab(3) << endl;
+    cout << solveNew(1) << endl;
 
     return 0;
 }

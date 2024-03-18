@@ -66,6 +66,7 @@ int solveSO(vector<int> &satisfaction)
         }
         next = curr;
     }
+    
     return next[0];
 }
 

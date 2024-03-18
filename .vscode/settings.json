@@ -43,6 +43,13 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "stack": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "valarray": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "unordered_set": "cpp",
+        "regex": "cpp",
+        "complex": "cpp"
     }
 }

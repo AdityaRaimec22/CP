@@ -97,12 +97,61 @@ vector<vector<int>> depthFirstSearch(int v, int e, vector<vector<int>> &edges)
             dfs(i, visited, adj, component);
             ans.push_back(component);
         }
-        
     }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+void dfs1(int node, unordered_map<int, bool> &visited, vector<int> &ans, unordered_map<int, list<int>> &adj) {
+    queue<int> q;
+    q.push(node);
+    visited[node] = true;
+
+    while(!q.empty()) {
+        int frontnode = q.front();
+        q.pop();
+
+        ans.push_back(frontnode);
+
+        for(auto i: adj[frontnode]) {
+            if(!visited[i]) {
+                q.push(i);
+                visited[i] = true;
+            }
+        }
+    }
+}
+
+vector<int> bfsTraversal(int n, vector<vector<int>> &adj){
+    // Write your code here.
+    unordered_map<int, list<int>> mp;
+    for(int i = 0; i < adj.size(); i++) {
+        int u = adj[i][0];
+        int v = adj[i][1];
+
+        mp[u].push_back(v);
+    }
+
+    vector<int> ans;
+    unordered_map<int, bool> visited;
+
+    for(int i = 0; i < n; i++) {
+        if(!visited[i]) {
+            dfs1(i, visited, ans, mp);
+        }
+    }
+
+    return ans;
 }
 
 int main(){
 
+    vector<vector<int> > adj = {{0, 1}, {0, 2}, {0, 3}, {1, 4}, {1, 7}, {2, 5}, {3, 6}};
+    int n = 8;
+
+    for(int i = 0; i < bfsTraversal(n,adj).size(); i++) {
+        cout << bfsTraversal(n,adj)[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }

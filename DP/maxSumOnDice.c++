@@ -15,9 +15,9 @@ in solve(in dice, in faces, in target)
         return 1;
     
     in ans = 0;
-    for(int i = 1; i<=faces; i++)
+    for(int i = 1; i <= faces; i++)
     {
-        ans = ans + solve(dice-1, faces, target-i);
+        ans = i + solve(dice-1, faces, target-i);
     }
     return ans;
 }
@@ -47,7 +47,6 @@ in solveMem(in dice, in faces, in target, vector<vector<in> > dp)
 in solveTab(in d, in f, in t)
 {
     //base case
-
     vector<in> prev(t+1, 0);
     vector<in> curr(t+1, 0);
     

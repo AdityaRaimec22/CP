@@ -8,6 +8,7 @@ int solveMem(vector<int> &nums, int n, vector<int> dp)
     //base case
     if(n < 0)
         return 0;
+        
     if(n == 0)
         return nums[0];
 

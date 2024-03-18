@@ -31,8 +31,6 @@ int solve(vector<int> &obstacles, int currlane, int currpos)
 int solveTab(vector<int> &obstacles)
 {
     int n = obstacles.size();
-    int currpos = 0;
-    int currlane = 2;
     vector<vector<int> > dp(4, vector<int> (obstacles.size(), -1));
 
     dp[0][n] = 0;
@@ -40,9 +38,9 @@ int solveTab(vector<int> &obstacles)
     dp[2][n] = 0;
     dp[3][n] = 0;
 
-    for(int pos = n-1; pos>=0; pos--)
+    for(int currpos = n-1; currpos>=0; currpos--)
     {
-        for(int lane = 1; lane<=3; lane++)
+        for(int currlane = 1; currlane <= 3; currlane++)
         {
             if(obstacles[currpos+1] != currlane)
             {
@@ -64,6 +62,20 @@ int solveTab(vector<int> &obstacles)
     }
     return min(dp[2][0], min(1+dp[1][0], 1+dp[3][0]));
 }
+
+int SO(vector<int> & obstacles) {
+    int n = obstacles.size() - 1;
+    vector<int> next(n+1, INT_MAX);
+    vector<int> curr(n+1, INT_MAX);
+
+    
+}
+
+
+
+
+
+
 
 int solveSO(vector<int> &obstacles)
 {

@@ -43,12 +43,11 @@ int solveMem(int n, int a[], int curr, int prev, vector<vector<int> > dp)
     //exclude
     int notTake = 0 + solveMem(n, a, curr + 1, prev, dp);
 
-    return dp[curr][prev] = max(take, notTake);
+    return dp[curr][prev+1] = max(take, notTake);
 }
 
 int solveTab(int n, int a[])
 {
-
     vector<int> currRow(n+1, 0);
     vector<int> nextRow(n+1, 0);
 
@@ -102,6 +101,9 @@ int longestSubsequence(int n, int a[])
 
 int main(){
 
+    
+    int arr[] = {5, 3, 4, 6, 2};
+    cout << longestSubsequence(5, arr) << endl;
 
     return 0;
 }
